@@ -12,7 +12,7 @@ This GH action allows us to pass a target directory and file glob to dynamically
 
 ### `search-directory`
 
-The location where we should search for files that match the `file-glob` (e.g. `./cypress`, `./`, etc.). Default `./` (root).
+The location where we should search for files that match the `file-glob` (e.g. `/cypress`, `/`, etc.). Default `/` (root).
 
 ## Outputs
 
@@ -33,7 +33,7 @@ jobs:
       uses: actions/collect-directory-names-by-file-glob@v1.1
       with:
         file-glob: '*.spec.ts'
-        search-directory: './cypress'
+        search-directory: '/cypress'
 
     - name: Use Directory Names
       run: echo "Directory Names are ${{ steps.get-directory-names.outputs.directory-names}}

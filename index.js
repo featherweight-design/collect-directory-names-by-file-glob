@@ -4,7 +4,7 @@ const glob = require('glob');
 const path = require('path');
 
 function findFromDirectory(searchDirectory, fileGlob) {
-  const adjustedSearchPath = path.resolve(__dirname, searchDirectory);
+  const adjustedSearchPath = `${process.env.GITHUB_WORKSPACE}${searchDirectory}`
   console.log({ adjustedSearchPath });
 
   const fileNames = glob.sync(fileGlob, { cwd: adjustedSearchPath });
