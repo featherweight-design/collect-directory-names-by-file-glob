@@ -3,16 +3,16 @@ const glob = require('glob');
 const path = require('path');
 
 function findFromDirectory(searchDirectory, fileGlob) {
-  const adjustedSearchPath = path.resolve(__dirname, adjustedSearchPath);
-  console.log({ adjustedSearchPath });
+  const adjustedSearchPath = path.resolve(__dirname, searchDirectory);
+  core.debug({ adjustedSearchPath });
 
   const fileNames = glob.sync(fileGlob, { cwd: adjustedSearchPath });
-  console.log({ fileNames });
+  core.debug({ fileNames });
 
   const directoryNames = fileNames.map((fileName) =>
     path.basename(path.dirname(fileName))
   );
-  console.log({ directoryNames });
+  core.debug({ directoryNames });
 
   return directoryNames;
 }
@@ -20,10 +20,6 @@ function findFromDirectory(searchDirectory, fileGlob) {
 try {
   const searchDirectory = core.getInput('search-directory');
   const fileGlob = core.getInput('file-glob');
-
-  console.log('Args are:');
-  console.log({ searchDirectory, fileGlob });
-  console.log(process.env);
 
   const directoryNames = findFromDirectory(searchDirectory, fileGlob);
   core.setOutput('directory-names', directoryNames);
