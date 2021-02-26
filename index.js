@@ -8,8 +8,9 @@ const getDirectoryNames = (fileNames) =>
 function findFromDirectory({ searchDirectory, fileGlob, unique }) {
   const adjustedSearchPath = path.resolve(__dirname, searchDirectory);
   core.debug({ adjustedSearchPath });
+  core.debug(path.resolve(__dirname, searchDirectory))
 
-  const fileNames = glob.sync(fileGlob, { cwd: adjustedSearchPath });
+  const fileNames = glob.sync(fileGlob, { cwd: path.resolve(__dirname, searchDirectory) });
   core.debug({ fileNames });
 
   const directoryNames = unique
@@ -24,6 +25,11 @@ try {
   const searchDirectory = core.getInput('search-directory');
   const fileGlob = core.getInput('file-glob');
   const unique = JSON.parse(core.getInput('unique'));
+  core.debug({
+    searchDirectory,
+    fileGlob,
+    unique,
+  });
 
   const directoryNames = findFromDirectory({
     searchDirectory,
