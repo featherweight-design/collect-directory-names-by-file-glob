@@ -8,11 +8,15 @@ This GH action allows us to pass a target directory and file glob to dynamically
 
 ### `file-glob`
 
-**Required** The file glob of any files for which you want the parent directory name (e.g. `*.spec.ts`, `*.js`, etc.).
+**Required** The file glob of any files for which you want the parent directory name (e.g. `*.spec.ts`, `**/*.js`, etc.).
 
 ### `search-directory`
 
 The location where we should search for files that match the `file-glob` (e.g. `/cypress`, `/`, etc.). Default `/` (root).
+
+### `unique`
+
+Whether or not to return unique values when duplicates may be possible. Default `"true"`.
 
 ## Outputs
 
@@ -32,8 +36,9 @@ jobs:
       id: get-directory-names
       uses: actions/collect-directory-names-by-file-glob@v1.1
       with:
-        file-glob: '*.spec.ts'
+        file-glob: '**/*.spec.ts'
         search-directory: '/cypress'
+        unique: "true"
 
     - name: Use Directory Names
       run: echo "Directory Names are ${{ steps.get-directory-names.outputs.directory-names}}
