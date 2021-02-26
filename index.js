@@ -19,10 +19,13 @@ try {
   const searchDirectory = core.getInput('search-directory');
   const fileGlob = core.getInput('file-glob');
 
+  console.log('Args are:');
+  console.log({ searchDirectory, fileGlob });
+
   const directoryNames = findFromDirectory(searchDirectory, fileGlob);
   core.setOutput('directory-names', directoryNames);
 
-  const payload = JSON.stringify(github.context.payload, undefined, 2);
+  const payload = JSON.stringify(github.context, undefined, 2);
   console.log(`The event payload: ${payload}`);
 } catch (error) {
   core.setFailed(error.message);
