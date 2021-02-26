@@ -1,0 +1,25 @@
+{
+  "name": "gh-actions",
+  "version": "1.0.0",
+  "description": "A collection of useful GH Actions to be used across projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/featherweight-design/gh-actions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/featherweight-design/gh-actions/issues"
+  },
+  "homepage": "https://github.com/featherweight-design/gh-actions#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0",
+    "glob": "^7.1.6"
+  }
+}
