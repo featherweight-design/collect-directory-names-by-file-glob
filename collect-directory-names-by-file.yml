@@ -1,0 +1,16 @@
+name: 'Collect Directory Names by File'
+description: 'Returns an array of parent directory names based on a passed file name or glob'
+inputs:
+  file-glob:
+    description: 'A glob representing the file(s) for which to search'
+    required: true
+  search-directory:
+    description: 'The directory to search (if not set, root is used)'
+    required: false
+    default: './'
+outputs:
+  directory-names:
+    description: 'An array of parent directory names'
+runs:
+  using: 'node12'
+  main: 'index.js'
