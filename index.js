@@ -23,7 +23,7 @@ function findFromDirectory({ searchDirectory, fileGlob, unique }) {
 try {
   const searchDirectory = core.getInput('search-directory');
   const fileGlob = core.getInput('file-glob');
-  const unique = core.getInput('unique');
+  const unique = JSON.parse(core.getInput('unique'));
 
   const directoryNames = findFromDirectory({
     searchDirectory,
