@@ -4,7 +4,10 @@ const glob = require('glob');
 const path = require('path');
 
 function findFromDirectory(searchDirectory, fileGlob) {
-  const fileNames = glob.sync(fileGlob, { cwd: searchDirectory });
+  const adjustedSearchPath = path.resolve(__dirname, searchDirectory);
+  console.log({ adjustedSearchPath });
+
+  const fileNames = glob.sync(fileGlob, { cwd: adjustedSearchPath });
   console.log({ fileNames });
 
   const directoryNames = fileNames.map((fileName) =>
