@@ -11,6 +11,10 @@ inputs:
     description: 'The directory to search (if not set, root is used)'
     required: false
     default: '/'
+  unique:
+    description: 'Whether or not to return unique values when duplicates may be possible'
+    required: false
+    default: "true"
 outputs:
   directory-names:
     description: 'An array of parent directory names'
