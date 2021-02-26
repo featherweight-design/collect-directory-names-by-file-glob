@@ -6,11 +6,12 @@ const getDirectoryNames = (fileNames) =>
   fileNames.map((fileName) => path.basename(path.dirname(fileName)));
 
 function findFromDirectory({ searchDirectory, fileGlob, unique }) {
-  const adjustedSearchPath = path.resolve(__dirname, searchDirectory);
+  const adjustedSearchPath = `${process.env.GITHUB_WORKSPACE}${searchDirectory}`
   core.debug({ adjustedSearchPath });
+  core.debug(process.cwd());
   core.debug(path.resolve(__dirname, searchDirectory))
 
-  const fileNames = glob.sync(fileGlob, { cwd: path.resolve(__dirname, searchDirectory) });
+  const fileNames = glob.sync(fileGlob, { cwd: adjustedSearchPath });
   core.debug({ fileNames });
 
   const directoryNames = unique
