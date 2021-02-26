@@ -4,10 +4,14 @@ const glob = require('glob');
 const path = require('path');
 
 function findFromDirectory(searchDirectory, fileGlob) {
+  // const adjustedSearchPath = `../component-library${searchDirectory}`
   const adjustedSearchPath = `${process.env.GITHUB_WORKSPACE}${searchDirectory}`
   console.log({ adjustedSearchPath });
+  console.log(process.cwd())
+  console.log(path.resolve(__dirname, searchDirectory))
+  console.log(path.resolve(__dirname, adjustedSearchPath))
 
-  const fileNames = glob.sync(fileGlob, { cwd: adjustedSearchPath });
+  const fileNames = glob.sync(fileGlob, { cwd: path.resolve(__dirname, searchDirectory) });
   console.log({ fileNames });
 
   const directoryNames = fileNames.map((fileName) =>
@@ -34,3 +38,5 @@ try {
 } catch (error) {
   core.setFailed(error.message);
 }
+
+// module.exports = findFromDirectory('/src/cypress', '**/*.spec.ts')
