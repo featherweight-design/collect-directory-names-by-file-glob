@@ -1,6 +1,6 @@
 # Collect Directory Names by File
 
-This was created as a solution for the Featherweight Design Component Library to dynamically find all component test suites based on existing '\*.spec.ts' files. Cypress tests in the library are parallelized through a GH Action matrix strategy. This required maintaining an array of test suites (e.g. ['Button', 'Checkbox']) for two different GH workflows which was tedious and prone to error.
+This was created as a solution for the Featherweight Design Component Library to dynamically find all component test suites based on existing `\*.spec.ts` files. Cypress tests in the library are parallelized through a GH Action matrix strategy. This required maintaining an array of test suites (e.g. `['Button', 'Checkbox']`) for two different GH workflows which was tedious and prone to error.
 
 This GH action allows us to pass a target directory and file glob to dynamically determine which tests suites we should run, automatically detecting when test suites are removed or added.
 
