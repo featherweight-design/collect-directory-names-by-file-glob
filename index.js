@@ -24,6 +24,7 @@ try {
 
   console.log('Args are:');
   console.log({ searchDirectory, fileGlob });
+  console.log(process.env)
 
   const directoryNames = findFromDirectory(searchDirectory, fileGlob);
   core.setOutput('directory-names', directoryNames);
