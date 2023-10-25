@@ -19,5 +19,5 @@ outputs:
   directory-names:
     description: 'An array of parent directory names'
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'index.js'

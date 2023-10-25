@@ -1,7 +1,7 @@
 {
-  "name": "gh-actions",
+  "name": "collect-directory-names-by-file-glob",
   "version": "1.0.0",
-  "description": "A collection of useful GH Actions to be used across projects",
+  "description": "GitHub Action to collect directories by contained files",
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf node_modules yarn.lock && yarn install",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/featherweight-design/gh-actions.git"
+    "url": "git+https://github.com/Lyka-Pet-Food/collect-directory-names-by-file-glob.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/featherweight-design/gh-actions/issues"
+    "url": "https://github.com/Lyka-Pet-Food/collect-directory-names-by-file-glob/issues"
   },
-  "homepage": "https://github.com/featherweight-design/gh-actions#readme",
+  "homepage": "https://github.com/Lyka-Pet-Food/collect-directory-names-by-file-glob#readme",
   "dependencies": {
     "@actions/core": "^1.2.6",
     "glob": "^7.1.6"
